@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glandular System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.2em;
+      background: linear-gradient(to bottom right, #000428, #004e92);
+      color: white;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .typewriter-header {
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      border-right: 3px solid white;
+      animation: typing-header 3s steps(20, end), blink-caret 0.75s step-end infinite;
+      font-size: 2.7em;
+      font-weight: bold;
+      color: #00e0ff;
+      text-shadow: 2px 2px 5px black;
+      margin-bottom: 10px;
+    }
+
+    @keyframes typing-header {
+      from { width: 0 }
+      to { width: 15ch }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    nav a {
+      color: #00e0ff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
+      margin: 0 15px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #00e0ff;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .text-section {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 20px;
+    }
+
+    .image-section {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .image-section img {
+      width: 90%;
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00e0ff;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .typewriter-text {
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1.5em;
+      color: #00e0ff;
+      animation: typing2 4s steps(60, end);
+      border-right: 2px solid #00e0ff;
+      width: fit-content;
+      margin-top: 30px;
+    }
+
+    @keyframes typing2 {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="typewriter-header">Glandular System</div>
+  </header>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="nervous.html">Nervous System</a>
+    <a href="glandular.html">Glandular System</a>
+    <a href="reproductive.html">Reproductive System</a>
+    <a href="funfacts.html">Fun Facts</a>
+  </nav>
+
+  <div class="container">
+    <div class="text-section">
+      <p>The glandular system, also known as the endocrine system, is responsible for producing and releasing hormones that regulate various functions in the body, such as growth, metabolism, mood, and reproduction. These hormones are secreted directly into the bloodstream and travel to different organs and tissues to carry out their functions.</p>
+
+      <h3>Types of Glands:</h3>
+      <ul>
+        <li><strong>Endocrine Glands</strong>: Release hormones directly into the blood (e.g., thyroid, pituitary).</li>
+        <li><strong>Exocrine Glands</strong>: Release substances through ducts to the outside or into a cavity (e.g., sweat glands, salivary glands).</li>
+      </ul>
+
+      <h3>Major Glands in the Glandular System:</h3>
+      <ul>
+        <li><strong>Pituitary Gland</strong>: Known as the "master gland," it controls other glands and influences growth, blood pressure, and reproduction.</li>
+        <li><strong>Thyroid Gland</strong>: Regulates metabolism and energy levels by producing thyroid hormones.</li>
+        <li><strong>Parathyroid Glands</strong>: Maintain calcium levels in the blood and bones.</li>
+        <li><strong>Adrenal Glands</strong>: Produce adrenaline and cortisol to help respond to stress and regulate metabolism and immune system.</li>
+        <li><strong>Pancreas</strong>: Produces insulin and glucagon to regulate blood sugar levels.</li>
+        <li><strong>Ovaries (in females)</strong>: Release estrogen and progesterone for reproductive function.</li>
+        <li><strong>Testes (in males)</strong>: Release testosterone, responsible for male reproductive traits.</li>
+      </ul>
+    </div>
+
+    <div class="image-section">
+      <img src="https://th.bing.com/th/id/R.8f5bb93a21c02b2c6e964f6abdbd8c08?rik=SzlHwoUW6WbYig&riu=http%3a%2f%2fmedicinebtg.com%2fwp-content%2fuploads%2f2017%2f06%2fsystem-we-discuss-different-types-hormones-and-examine-how-glands-and-endorine-Endocrine-Glands-Structure-And-Function-glands-are-768x917.jpg&ehk=DZ1TRDLfkxUXRbodbAMCk74jllGiFQzas4awWIZ1uB0%3d&risl=&pid=ImgRaw&r=0" alt="Glandular System">
+    </div>
+  </div>
+
+  <div class="typewriter-text">
+    Let's explore how the glands control many of our body's vital functions.
+  </div>
+
+</body>
+</html>
