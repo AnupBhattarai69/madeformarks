@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fun Facts Quiz</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1b2a;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .question-container {
+      width: 100%;
+      max-width: 800px;
+      background: #1b263b;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    h1, h2 {
+      color: #00b4d8;
+    }
+    .option {
+      background-color: #415a77;
+      color: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 18px;
+    }
+    .option:hover {
+      background-color: #778da9;
+    }
+    .option.correct {
+      background-color: green;
+    }
+    .option.wrong {
+      background-color: red;
+    }
+    #next-btn, #restart-btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #00b4d8;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+    }
+    #score {
+      font-size: 24px;
+      color: #00ffcc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="question-container">
+    <h1>Fun Facts Quiz</h1>
+    <h2 id="question">Loading...</h2>
+    <div id="options"></div>
+    <button id="next-btn">Next</button>
+    <div id="score" class="hidden"></div>
+    <button id="restart-btn">Restart Quiz</button>
+  </div>
+
+  <audio id="correct-sound" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+  <audio id="wrong-sound" src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
+
+  <script>
+    const questions = [
+      {
+        q: "Which organ controls the entire body?",
+        options: ["Heart", "Brain", "Lungs", "Stomach"],
+        answer: "Brain"
+      },
+      {
+        q: "What hormone is known as the 'stress hormone'?",
+        options: ["Insulin", "Estrogen", "Cortisol", "Thyroxine"],
+        answer: "Cortisol"
+      },
+      {
+        q: "What connects muscles to bones?",
+        options: ["Ligaments", "Tendons", "Cartilage", "Nerves"],
+        answer: "Tendons"
+      },
+      {
+        q: "Which blood cells help in clotting?",
+        options: ["Red cells", "White cells", "Platelets", "Plasma"],
+        answer: "Platelets"
+      },
+      {
+        q: "Which part of the brain controls balance?",
+        options: ["Cerebrum", "Cerebellum", "Brainstem", "Amygdala"],
+        answer: "Cerebellum"
+      },
+      {
+        q: "Which gland is called the master gland?",
+        options: ["Pineal", "Pituitary", "Thyroid", "Adrenal"],
+        answer: "Pituitary"
+      },
+      {
+        q: "How many chambers does the human heart have?",
+        options: ["2", "3", "4", "5"],
+        answer: "4"
+      },
+      {
+        q: "What is the largest organ in the human body?",
+        options: ["Liver", "Lungs", "Skin", "Brain"],
+        answer: "Skin"
+      },
+      {
+        q: "Where are red blood cells made?",
+        options: ["Heart", "Kidney", "Bone marrow", "Liver"],
+        answer: "Bone marrow"
+      },
+      {
+        q: "Which hormone regulates blood sugar?",
+        options: ["Insulin", "Adrenaline", "Estrogen", "Glucagon"],
+        answer: "Insulin"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionElem = document.getElementById("question");
+    const optionsElem = document.getElementById("options");
+    const nextBtn = document.getElementById("next-btn");
+    const restartBtn = document.getElementById("restart-btn");
+    const scoreElem = document.getElementById("score");
+    const correctSound = document.getElementById("correct-sound");
+    const wrongSound = document.getElementById("wrong-sound");
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      questionElem.textContent = `Q${currentQuestion + 1}. ${q.q}`;
+      optionsElem.innerHTML = '';
+      q.options.forEach(option => {
+        const div = document.createElement("div");
+        div.textContent = option;
+        div.classList.add("option");
+        div.onclick = () => checkAnswer(div, option, q.answer);
+        optionsElem.appendChild(div);
+      });
+      nextBtn.style.display = "none";
+      restartBtn.style.display = "none";
+      scoreElem.textContent = "";
+    }
+
+    function checkAnswer(selected, userAnswer, correctAnswer) {
+      const allOptions = document.querySelectorAll(".option");
+      allOptions.forEach(opt => opt.onclick = null); // disable more clicks
+
+      if (userAnswer === correctAnswer) {
+        selected.classList.add("correct");
+        correctSound.play();
+        score += 10;
+      } else {
+        selected.classList.add("wrong");
+        wrongSound.play();
+        allOptions.forEach(opt => {
+          if (opt.textContent === correctAnswer) {
+            opt.classList.add("correct");
+          }
+        });
+      }
+
+      nextBtn.style.display = "block";
+    }
+
+    nextBtn.onclick = () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        showScore();
+      }
+    };
+
+    function showScore() {
+      questionElem.textContent = "Quiz Completed!";
+      optionsElem.innerHTML = "";
+      nextBtn.style.display = "none";
+      scoreElem.textContent = `Your final score is ${score} out of 100`;
+      scoreElem.classList.remove("hidden");
+      restartBtn.style.display = "inline-block";
+    }
+
+    restartBtn.onclick = () => {
+      score = 0;
+      currentQuestion = 0;
+      loadQuestion();
+    };
+
+    loadQuestion();
+  </script>
+</body>
+</html>
