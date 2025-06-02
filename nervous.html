@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nervous System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.2em;
+      background: linear-gradient(to bottom right, #000000, #003366);
+      color: white;
+      scroll-behavior: smooth;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .typewriter-header {
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      border-right: 3px solid white;
+      animation: typing-header 3s steps(20, end), blink-caret 0.75s step-end infinite;
+      font-size: 2.7em;
+      font-weight: bold;
+      color: #00ccff;
+      text-shadow: 2px 2px 5px black;
+      margin-bottom: 10px;
+    }
+
+    @keyframes typing-header {
+      from { width: 0 }
+      to { width: 15ch }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    nav a {
+      color: #00ccff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #00ccff;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .text-section {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 20px;
+    }
+
+    .image-section {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 10px;
+    }
+
+    .image-section img {
+      width: 90%;
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ccff;
+      transition: transform 0.3s ease;
+    }
+
+    .image-section img:hover {
+      transform: scale(0.98);
+    }
+
+    ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_91e132fe78.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="hoverSound">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d038fa75e5.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSound">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/17/audio_67b17c93a6.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const hoverSound = document.getElementById('hoverSound');
+  const clickSound = document.getElementById('clickSound');
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+    });
+  });
+  document.body.addEventListener('click', () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  });
+</script>
+
+<header>
+  <div class="typewriter-header">Nervous System</div>
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="nervous.html">Nervous System</a>
+  <a href="glandular.html">Glandular System</a>
+  <a href="reproductive.html">Reproductive System</a>
+  <a href="funfacts.html">Fun Facts</a>
+</nav>
+
+<div class="container">
+  <div class="text-section">
+    <h2>Central Nervous System (CNS)</h2>
+    <p>The CNS includes the brain and the spinal cord. It is the control center of the body, processing information and sending instructions.</p>
+
+    <h3>Five Main Parts of the Brain:</h3>
+    <ul>
+      <li><strong>Cerebrum:</strong> Largest part, responsible for thinking, memory, and voluntary movements.</li>
+      <li><strong>Cerebellum:</strong> Controls balance and coordination.</li>
+      <li><strong>Brainstem:</strong> Controls vital functions like breathing and heartbeat.</li>
+      <li><strong>Thalamus:</strong> Relays sensory information to the brain.</li>
+      <li><strong>Hypothalamus:</strong> Regulates body temperature, hunger, and emotions.</li>
+    </ul>
+
+    <h3>Spinal Cord</h3>
+    <p>The spinal cord is a long bundle of nerves that runs down your back. It connects the brain to the rest of the body and allows communication between the CNS and the PNS.</p>
+  </div>
+  <div class="image-section">
+    <img src="https://st3.depositphotos.com/3900811/36260/v/1600/depositphotos_362609354-stock-illustration-human-brain-vector-illustration-labeled.jpg" alt="Labeled Brain">
+  </div>
+</div>
+
+<div class="container">
+  <div class="text-section">
+    <h2>Peripheral Nervous System (PNS)</h2>
+    <p>The PNS includes all the nerves outside the brain and spinal cord. It carries messages between the CNS and the rest of the body, including limbs and organs.</p>
+    <p>It has two main parts:</p>
+    <ul>
+      <li><strong>Somatic Nervous System:</strong> Controls voluntary actions like moving muscles.</li>
+      <li><strong>Autonomic Nervous System (ANS):</strong> Controls involuntary functions like heartbeat and digestion.</li>
+    </ul>
+
+    <h2>Autonomic Nervous System (ANS)</h2>
+    <p>The ANS is further divided into:</p>
+    <ul>
+      <li><strong>Sympathetic System:</strong> Prepares the body for “fight or flight” during stress.</li>
+      <li><strong>Parasympathetic System:</strong> Calms the body down and conserves energy.</li>
+    </ul>
+  </div>
+
+  <div class="image-section">
+    <img src="https://spinalcordclinic.com/wp-content/uploads/2019/07/spine.jpg" alt="Spinal Cord">
+  </div>
+</div>
+
+</body>
+</html>
