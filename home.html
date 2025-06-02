@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Human Body</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.2em;
+      background: linear-gradient(to bottom right, #000000, #001f3f);
+      color: white;
+      scroll-behavior: smooth;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .typewriter-header {
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      border-right: 3px solid white;
+      animation: typing-header 3s steps(20, end), blink-caret 0.75s step-end infinite;
+      font-size: 2.7em;
+      font-weight: bold;
+      color: #00bfff;
+      text-shadow: 2px 2px 5px #0000ff;
+      margin-bottom: 10px;
+    }
+
+    @keyframes typing-header {
+      from { width: 0 }
+      to { width: 15ch }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    nav a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
+      margin: 0 15px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #00bfff;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .text-section {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 20px;
+    }
+
+    .text-section ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+
+    .image-section {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-section img {
+      width: 90%;
+      max-width: 300px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    .image-section img:hover {
+      transform: scale(0.95);
+    }
+
+    .typewriter-text {
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1.5em;
+      color: #00bfff;
+      animation: typing2 4s steps(60, end);
+      border-right: 2px solid #00bfff;
+      width: fit-content;
+      margin-top: 30px;
+    }
+
+    @keyframes typing2 {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background reading-style music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_91e132fe78.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Hover and click sound effects -->
+  <audio id="hoverSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d038fa75e5.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="clickSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/17/audio_67b17c93a6.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const hoverSound = document.getElementById('hoverSound');
+    const clickSound = document.getElementById('clickSound');
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    document.body.addEventListener('click', () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    });
+  </script>
+
+  <header>
+    <div class="typewriter-header">Human Body</div>
+  </header>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="nervous.html">Nervous System</a>
+    <a href="glandular.html">Glandular System</a>
+    <a href="reproductive.html">Reproductive System</a>
+    <a href="funfacts.html">Fun Facts</a>
+  </nav>
+
+  <div class="container">
+    <div class="text-section">
+      <p>The human body is an extraordinary system made up of various organs and structures that work together to sustain life. From your brain sending signals to your muscles, to your heart pumping blood, each part plays a vital role. Understanding how the body functions helps us take better care of ourselves and appreciate the incredible design of human anatomy.</p>
+
+      <p>The human body is a complex and fascinating structure made up of trillions of cells that form tissues, organs, and systems. These systems work together to keep us alive, healthy, and functioning properly every day.</p>
+
+      <p>There are nine major systems in the human body:</p>
+      <ul>
+        <li>Skeletal System</li>
+        <li>Muscular System</li>
+        <li>Nervous System</li>
+        <li>Circulatory System</li>
+        <li>Respiratory System</li>
+        <li>Digestive System</li>
+        <li>Excretory System</li>
+        <li>Glandular (Endocrine) System</li>
+        <li>Reproductive System</li>
+      </ul>
+    </div>
+
+    <div class="image-section">
+      <img src="https://st.focusedcollection.com/13422768/i/1800/focused_308609840-stock-photo-realistic-human-body-model-showing.jpg" alt="Human Body">
+    </div>
+  </div>
+
+  <div class="typewriter-text">
+    Today we are going to learn about the Nervous System, Glandular System, and Reproductive System.
+  </div>
+
+</body>
+</html>
